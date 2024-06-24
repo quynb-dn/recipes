@@ -5,7 +5,7 @@ import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
 import { WebLayout } from "@layouts/web";
-import { RecipeDetails } from "@components/views/recipes/RecipeDetails/RecipeDetails";
+import { RecipeDetails } from "@components/recipes/RecipeDetails/RecipeDetails";
 
 async function fetchRecipe(slug: string) {
   const res = await ApiService.get(`/recipes/${slug}`);

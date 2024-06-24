@@ -1,7 +1,7 @@
-import { RECIPES } from "@_mock/recipe";
+import { BLOG_POSTS } from "@_mock/blog";
 
 export async function GET(_: Request) {
   return Response.json({
-    data: RECIPES,
+    data: BLOG_POSTS,
   });
 }

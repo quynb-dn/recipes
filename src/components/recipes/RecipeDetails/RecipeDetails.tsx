@@ -15,8 +15,8 @@ import AddIcon from "@mui/icons-material/Add";
 import LocalPrintshopOutlinedIcon from "@mui/icons-material/LocalPrintshopOutlined";
 import CookieOutlinedIcon from "@mui/icons-material/CookieOutlined";
 
-import { getRandomImageUrl } from "@utils/images";
-import { Recipe } from "@models/recipes";
+import { generateRandomImageUrl } from "@utils/images";
+import { Recipe } from "@models/recipe";
 
 import { RecipeInfo } from "@components/recipes/RecipeInfo/RecipeInfo";
 
@@ -146,7 +146,7 @@ export const RecipeDetails = ({ recipe }: RecipeDetailsProps) => {
         }}
       >
         <RecipeImage
-          src={getRandomImageUrl(600, 400, "foods")}
+          src={generateRandomImageUrl(600, 400, "foods")}
           width={600}
           height={400}
           alt=""

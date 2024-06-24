@@ -1,5 +1,5 @@
-import { Recipe } from "@models/recipes";
-import { getRandomImageUrl } from "@utils/images";
+import { Recipe } from "@models/recipe";
+import { generateRandomImageUrl } from "@utils/images";
 
 const IMAGE_WIDTH = 1200;
 const IMAGE_HEIGHT = 800;
@@ -20,7 +20,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(
+    image: generateRandomImageUrl(
       IMAGE_WIDTH,
       IMAGE_HEIGHT,
       "whole-grain-banana-bread"
@@ -49,7 +49,11 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(IMAGE_WIDTH, IMAGE_HEIGHT, "classic-banana-bread"),
+    image: generateRandomImageUrl(
+      IMAGE_WIDTH,
+      IMAGE_HEIGHT,
+      "classic-banana-bread"
+    ),
     title: "Classic Banana Bread",
     description:
       "A timeless classic, this banana bread is moist and packed with banana flavor.",
@@ -75,7 +79,11 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(IMAGE_WIDTH, IMAGE_HEIGHT, "pumpkin-spice-bread"),
+    image: generateRandomImageUrl(
+      IMAGE_WIDTH,
+      IMAGE_HEIGHT,
+      "pumpkin-spice-bread"
+    ),
     title: "Pumpkin Spice Bread",
     description: "Deliciously spiced pumpkin bread that's perfect for fall.",
     content:
@@ -100,7 +108,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(IMAGE_WIDTH, IMAGE_HEIGHT, "zucchini-bread"),
+    image: generateRandomImageUrl(IMAGE_WIDTH, IMAGE_HEIGHT, "zucchini-bread"),
     title: "Zucchini Bread",
     description: "Moist and flavorful bread made with fresh zucchini.",
     content:
@@ -125,7 +133,11 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(IMAGE_WIDTH, IMAGE_HEIGHT, "apple-cinnamon-bread"),
+    image: generateRandomImageUrl(
+      IMAGE_WIDTH,
+      IMAGE_HEIGHT,
+      "apple-cinnamon-bread"
+    ),
     title: "Apple Cinnamon Bread",
     description: "Warm and comforting bread with apple and cinnamon flavors.",
     content:
@@ -150,7 +162,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(
+    image: generateRandomImageUrl(
       IMAGE_WIDTH,
       IMAGE_HEIGHT,
       "lemon-poppy-seed-bread"
@@ -180,7 +192,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(
+    image: generateRandomImageUrl(
       IMAGE_WIDTH,
       IMAGE_HEIGHT,
       "chocolate-banana-bread"
@@ -209,7 +221,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(
+    image: generateRandomImageUrl(
       IMAGE_WIDTH,
       IMAGE_HEIGHT,
       "cranberry-orange-bread"
@@ -239,7 +251,7 @@ export const RECIPES: Recipe[] = [
         title: "Quick Bread",
       },
     ],
-    image: getRandomImageUrl(
+    image: generateRandomImageUrl(
       IMAGE_WIDTH,
       IMAGE_HEIGHT,
       "blueberry-lemon-bread"

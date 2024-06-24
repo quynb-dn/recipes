@@ -1,12 +1,12 @@
 import { RECIPES } from "@_mock/recipe";
-import { Recipes } from "@components/views/recipes/Recipes/Recipes";
+import { Recipes } from "@components/recipes/Recipes/Recipes";
 import { WebLayout } from "@layouts/web";
 import { Box } from "@mui/material";
 import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
-async function fetchRecipes() {
-  const res = await ApiService.get("/recipes");
+async function fetchResources() {
+  const res = await ApiService.get("/recipes/resources");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -16,7 +16,7 @@ async function fetchRecipes() {
 }
 
 export default async function RecipeCategories() {
-  const { data: recipes } = await fetchRecipes();
+  const { data: resources } = await fetchResources();
 
   return (
     <WebLayout
@@ -33,7 +33,7 @@ export default async function RecipeCategories() {
       ]}
     >
       <Box sx={{ flexGrow: 1 }}>
-        <Recipes recipes={recipes} />
+        <Recipes recipes={resources} />
       </Box>
     </WebLayout>
   );

@@ -1,4 +1,4 @@
-export const getRandomImageUrl = (
+export const generateRandomImageUrl = (
   width: number,
   height: number,
   category: string
