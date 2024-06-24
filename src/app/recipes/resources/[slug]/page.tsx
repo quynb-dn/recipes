@@ -5,10 +5,10 @@ import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
 import { WebLayout } from "@layouts/web";
-import { RecipeDetails } from "@components/views/recipes/RecipeDetails/RecipeDetails";
+import { RecipeDetails } from "@components/recipes/RecipeDetails/RecipeDetails";
 
-async function fetchRecipe(slug: string) {
-  const res = await ApiService.get(`/recipes/${slug}`);
+async function fetchResource(slug: string) {
+  const res = await ApiService.get(`/recipes/resources/${slug}`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -24,9 +24,9 @@ interface RecipeCategoryDetailsProps {
 export default async function RecipeCategoryDetails({
   params: { slug },
 }: RecipeCategoryDetailsProps) {
-  const { data: recipe } = await fetchRecipe(slug);
+  const { data: resource } = await fetchResource(slug);
 
-  if (!recipe) {
+  if (!resource) {
     return notFound();
   }
 
@@ -44,12 +44,12 @@ export default async function RecipeCategoryDetails({
           link: WEB_ROUTES.recipeCategories,
         },
         {
-          key: recipe.slug,
+          key: resource.slug,
           label: "",
         },
       ]}
     >
-      <RecipeDetails recipe={recipe} />
+      <RecipeDetails recipe={resource} />
     </WebLayout>
   );
 }

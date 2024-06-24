@@ -1,12 +1,12 @@
 import { RECIPES } from "@_mock/recipe";
-import { Recipes } from "@components/views/recipes/Recipes/Recipes";
+import { Recipes } from "@components/recipes/Recipes/Recipes";
 import { WebLayout } from "@layouts/web";
 import { Box } from "@mui/material";
 import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
 async function fetchRecipes() {
-  const res = await ApiService.get("/recipes");
+  const res = await ApiService.get("/recipes/collections");
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

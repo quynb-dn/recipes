@@ -1,5 +1,5 @@
 import { RECIPES } from "@_mock/recipe";
-import { Recipes } from "@components/views/recipes/Recipes/Recipes";
+import { Recipes } from "@components/recipes/Recipes/Recipes";
 import { WebLayout } from "@layouts/web";
 import { Box } from "@mui/material";
 import { WEB_ROUTES } from "@routes/web-routes";

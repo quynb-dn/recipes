@@ -10,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { Recipe } from "@models/recipes";
+import { Recipe } from "@models/recipe";
 import { WEB_ROUTES } from "@routes/web-routes";
 
 interface RecipesProps {

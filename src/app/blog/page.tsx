@@ -1,5 +1,4 @@
 import React from "react";
-import NextLink from "next/link";
 
 import {
   Typography,
@@ -9,37 +8,24 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
+
+import { ApiService } from "@services/api";
+import { BlogPost } from "@models/blog";
+
 import { WebLayout } from "@layouts/web";
-import { getRandomImageUrl } from "@utils/images";
 
-const blogPosts = [
-  {
-    id: 1,
-    title: "Delicious Summer Recipes",
-    image: getRandomImageUrl(600, 400, "food-summer"),
-    excerpt:
-      "Discover refreshing summer recipes that will delight your taste buds and keep you cool.",
-    slug: "delicious-summer-recipes",
-  },
-  {
-    id: 2,
-    title: "Healthy Eating Tips for Busy Professionals",
-    image: getRandomImageUrl(600, 400, "food-healthy"),
-    excerpt:
-      "Learn how to maintain a healthy diet despite a hectic work schedule with these practical tips.",
-    slug: "healthy-eating-tips-for-busy-professionals",
-  },
-  {
-    id: 3,
-    title: "Farm-to-Table Dining: A Sustainable Choice",
-    image: getRandomImageUrl(600, 400, "food-dining"),
-    excerpt:
-      "Explore the benefits of farm-to-table dining and its positive impact on health and the environment.",
-    slug: "farm-to-table-dining-sustainable-choice",
-  },
-];
+async function fetchBlogPosts(): Promise<{ data: BlogPost[] }> {
+  const res = await ApiService.get("/blogs");
 
-export default function BlogPage() {
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return await res.json();
+}
+export default async function BlogPage() {
+  const { data: blogPosts } = await fetchBlogPosts();
+
   return (
     <WebLayout>
       <Typography variant="h4" gutterBottom>
@@ -49,7 +35,7 @@ export default function BlogPage() {
         {blogPosts.map((post) => (
           <Grid item key={post.id} xs={12} sm={6} md={4}>
             <Card>
-              <CardActionArea component={NextLink} href={`/blog/${post.slug}`}>
+              <CardActionArea>
                 <CardMedia
                   image={post.image}
                   title={post.title}
