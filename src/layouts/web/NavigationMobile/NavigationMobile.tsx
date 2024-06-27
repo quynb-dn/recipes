@@ -32,6 +32,11 @@ const AccordionSummary = styled(MuiAccordionSummary)({
   ".MuiAccordionSummary-content": {
     marginTop: 0,
     marginBottom: 0,
+
+    "&.Mui-expanded": {
+      marginTop: 0,
+      marginBottom: 0,
+    },
   },
 
   "&.Mui-expanded": {
