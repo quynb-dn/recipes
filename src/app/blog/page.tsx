@@ -15,13 +15,21 @@ import { BlogPost } from "@models/blog";
 import { WebLayout } from "@layouts/web";
 
 async function fetchBlogPosts(): Promise<{ data: BlogPost[] }> {
-  const res = await ApiService.get("/blogs");
+  try {
+    const res = await ApiService.get("/blogs");
+    if (!res.ok) {
+      return {
+        data: [],
+      };
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return await res.json();
+  } catch (error) {
+    console.error(error);
+    return {
+      data: [],
+    };
   }
-
-  return await res.json();
 }
 export default async function BlogPage() {
   const { data: blogPosts } = await fetchBlogPosts();

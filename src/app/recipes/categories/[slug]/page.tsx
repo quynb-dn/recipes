@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 
-import { RECIPES } from "@_mock/recipe";
 import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
@@ -8,13 +7,21 @@ import { WebLayout } from "@layouts/web";
 import { RecipeDetails } from "@components/recipes/RecipeDetails/RecipeDetails";
 
 async function fetchRecipe(slug: string) {
-  const res = await ApiService.get(`/recipes/${slug}`);
+  try {
+    const res = await ApiService.get(`/recipes/${slug}`);
+    if (!res.ok) {
+      return {
+        data: null,
+      };
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return res.json();
+  } catch (error) {
+    console.error(error);
+    return {
+      data: null,
+    };
   }
-
-  return res.json();
 }
 
 interface RecipeCategoryDetailsProps {

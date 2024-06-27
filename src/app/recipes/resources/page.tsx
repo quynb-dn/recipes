@@ -1,4 +1,3 @@
-import { RECIPES } from "@_mock/recipe";
 import { Recipes } from "@components/recipes/Recipes/Recipes";
 import { WebLayout } from "@layouts/web";
 import { Box } from "@mui/material";
@@ -6,13 +5,21 @@ import { WEB_ROUTES } from "@routes/web-routes";
 import { ApiService } from "@services/api";
 
 async function fetchResources() {
-  const res = await ApiService.get("/recipes/resources");
+  try {
+    const res = await ApiService.get("/recipes/resources");
+    if (!res.ok) {
+      return {
+        data: [],
+      };
+    }
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    return res.json();
+  } catch (error) {
+    console.error(error);
+    return {
+      data: [],
+    };
   }
-
-  return res.json();
 }
 
 export default async function RecipeCategories() {
